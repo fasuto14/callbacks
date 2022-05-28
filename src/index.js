@@ -16,4 +16,8 @@ import { obtenerPlayersArr } from "./js/await";
 //     .then(player => console.log(player))
 //     .catch(console.warn);
 
-obtenerPlayersArr().then(console.table);
+console.time('await')
+obtenerPlayersArr().then(players => {
+    console.table(players)
+    console.timeEnd('await')
+});

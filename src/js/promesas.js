@@ -49,6 +49,20 @@ export const buscarPlayerAsync = async (id) => {
     }
 }
 
+//Protip
+export const buscarPlayer1 = (id) => {
+    const player = players[id];
+    return new Promise((resolve, reject) => {
+        if (player) {
+            setTimeout(() => {
+                resolve(player)
+            }, 1000);
+        } else {
+            reject(`No existe un player con el id: ${id}`);
+        }
+    });
+}
+
 const promesaLenta = new Promise((resolve, reject) => {
     setTimeout(() => { resolve('Promesa lenta'), 2000 })
 });
