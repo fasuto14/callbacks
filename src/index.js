@@ -28,9 +28,22 @@ const playerId3 = 'diaz';
 //     })
 // });
 
-buscarPlayer(playerId1).then(player => {
-    console.log(`Enviando a ${player.nombre} a la cancha`);
-});
+// buscarPlayer(playerId1).then(player1 => {
+//     //console.log(`Enviando a ${player.nombre} a la cancha`);
+//     buscarPlayer(playerId2).then(player2 => {
+//         console.log(`Enviando a ${player2.nombre} y ${player1.nombre} a la cancha`);
+//     });
+// });
+
+// Promise.all([true, 'hola', 123]).then(arr => {
+//     console.log('promise.all', arr)
+// });
+
+Promise.all([buscarPlayer(playerId1), buscarPlayer(playerId2)])
+    .then(([player1, player2]) => {
+        //console.log('promise.all', players);
+        console.log(`Enviando a ${player1.nombre} y ${player2.nombre} a la cancha`);
+    });
 
 console.log('Fin del programa');
 
