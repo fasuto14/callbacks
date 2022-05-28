@@ -1,10 +1,11 @@
-import { buscarPlayerAsync, buscarPlayer1 } from './promesas';
+import { buscarPlayerAsync, buscarPlayer1, buscarPlayer } from './promesas';
 const playerIds = [
     'armani',
     'diaz',
     'perez',
     'alvarez'
 ]
+const playersPromesas = playerIds.map(buscarPlayer)
 
 //Protip de dos diferentes formas.
 export const obtenerPlayersArr = async () => {
@@ -30,5 +31,23 @@ export const obtenerPlayerAwait = async (id) => {
             sueldo: 'Sin Sueldo',
         };
     }
+}
 
+export const playersCiclo = async () => {
+    console.time('PlayersCiclo');
+    // const players = await Promise.all(playersPromesas);
+    // players.forEach(player => console.log(player))
+    //for await
+    for await (const player of playersPromesas) {
+        console.log(player)
+    }
+    console.timeEnd('PlayersCiclo');
+}
+
+export const playerIfAwait = async (id) => {
+    if (await buscarPlayerAsync(id).nombre === 'Julian') {
+        console.log('ES EL MAS PICANTE DE RIVER');
+    } else {
+        console.log('Naaa')
+    }
 }
