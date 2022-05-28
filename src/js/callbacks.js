@@ -50,13 +50,20 @@ export const buscarHeroe = (id, callback) => {
 
 export const buscarPlayer = (id, callback) => {
     const player = players[id];
-    callback(player);
-    console.log(
-        `
-         El nombre del player es: ${players[id].nombre} 
-         El apellido del player es: ${players[id].apellido} 
-         El puesto del player es: ${players[id].puesto}
-         La camiseta del player es: ${players[id].camiseta}
-         El sueldo del player es: ${players[id].sueldo} de crocantes   
-        `)
+    if (player) {
+        callback(null, player);
+        console.log(
+            `
+             El nombre del player es: ${players[id].nombre} 
+             El apellido del player es: ${players[id].apellido} 
+             El puesto del player es: ${players[id].puesto}
+             La camiseta del player es: ${players[id].camiseta}
+             El sueldo del player es: ${players[id].sueldo} de crocantes   
+            `)
+    } else {
+        //Un error
+        callback(`No existe un player con el id: ${id}`);
+    }
+    //callback(player);
+
 }
