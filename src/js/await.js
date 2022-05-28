@@ -15,3 +15,20 @@ export const obtenerPlayersArr = async () => {
     // }
     // return await Promise.all(playersArr);
 }
+
+export const obtenerPlayerAwait = async (id) => {
+    try {
+        const player = await buscarPlayerAsync(id);
+        return player;
+    } catch (err) {
+        console.log('Catch!!!')
+        return {
+            nombre: 'Sin Nombre',
+            apellido: 'Sin Apellido',
+            puesto: 'Sin Puesto',
+            camiseta: 'Sin Casaca',
+            sueldo: 'Sin Sueldo',
+        };
+    }
+
+}

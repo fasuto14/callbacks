@@ -1,4 +1,4 @@
-import { obtenerPlayersArr } from "./js/await";
+import { obtenerPlayerAwait, obtenerPlayersArr } from "./js/await";
 //import { buscarPlayer, buscarPlayerAsync } from "./js/promesas";
 //import { promesaRapida, promesaLenta, promesaMedia } from './js/promesas';
 
@@ -16,8 +16,16 @@ import { obtenerPlayersArr } from "./js/await";
 //     .then(player => console.log(player))
 //     .catch(console.warn);
 
+// 
+// obtenerPlayersArr().then(players => {
+//     console.table(players)
+//     console.timeEnd('await')
+// });
+//obtenerPlayerAwait
+
 console.time('await')
-obtenerPlayersArr().then(players => {
-    console.table(players)
-    console.timeEnd('await')
-});
+obtenerPlayerAwait('alvarea')
+    .then(player => {
+        console.log(player)
+        console.timeEnd('await')
+    }).catch(err => console.warn)
