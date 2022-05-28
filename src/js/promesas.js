@@ -40,6 +40,15 @@ export const buscarPlayer = (id) => {
     });
 }
 
+export const buscarPlayerAsync = async (id) => {
+    const player = players[id];
+    if (player) {
+        return player;
+    } else {
+        throw `No existe un player con el id: ${id}`;
+    }
+}
+
 const promesaLenta = new Promise((resolve, reject) => {
     setTimeout(() => { resolve('Promesa lenta'), 2000 })
 });
