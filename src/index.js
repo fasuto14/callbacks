@@ -1,4 +1,5 @@
-import { buscarPlayer, buscarPlayerAsync } from "./js/promesas";
+import { obtenerPlayersArr } from "./js/await";
+//import { buscarPlayer, buscarPlayerAsync } from "./js/promesas";
 //import { promesaRapida, promesaLenta, promesaMedia } from './js/promesas';
 
 // promesaLenta.then(console.log);
@@ -8,9 +9,11 @@ import { buscarPlayer, buscarPlayerAsync } from "./js/promesas";
 // Promise.race([promesaRapida, promesaLenta, promesaMedia])
 //     .then(console.log)
 
-buscarPlayer('alvarez1')
-    .then(player => console.log(player))
-    .catch(console.warn);
-buscarPlayerAsync('armani1')
-    .then(player => console.log(player))
-    .catch(console.warn);
+// buscarPlayer('alvarez1')
+//     .then(player => console.log(player))
+//     .catch(console.warn);
+// buscarPlayerAsync('armani1')
+//     .then(player => console.log(player))
+//     .catch(console.warn);
+
+obtenerPlayersArr().then(console.table);
